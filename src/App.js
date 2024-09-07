@@ -14,7 +14,8 @@ function App() {
   };
 
   const [roastResponse, setRoastResponse] = useState("");
-  const handleSubmit = async (file) => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
       const formData = new FormData();
       formData.append("cv", filePath); // Replace 'file' with the desired field name in your backend
