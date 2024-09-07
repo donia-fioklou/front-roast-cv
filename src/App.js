@@ -1,7 +1,12 @@
-import "./App.css";
+// import "./App.css";
+
+import NavBar from "./components/NavBar";
 
 function App() {
   return <main >
+  <header className="no_underline">
+  <NavBar/>
+  </header>;
   {/* add the navaition here use the header and add a nav here*/ }
 
 
@@ -9,9 +14,6 @@ function App() {
 
 
   {/* the footer here */ }
-
-
-
  </main>;
 
 }
