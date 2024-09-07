@@ -9,6 +9,7 @@ module.exports = {
       colors: {
         bgColor: 'rgba(240,240,240,255)', // Add your custom RGB color here
         btColor: 'rgba(21,21,21,255)',
+        textColor:"rgba(151,151,151,255)"
       },
     },
   },
