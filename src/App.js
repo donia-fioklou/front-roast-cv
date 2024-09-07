@@ -1,13 +1,11 @@
 import "./App.css";
 import { useState } from "react";
 function App() {
-  const api_url = 'https://back-roast-cv.onrender.com/roast_cv';
 
-  const [filePath, setFilePath] = useState(null);
+  const [filePath, setFilePath] = useState('');
 
   const handleFileChange = (event) => {
-    const newFilePath = event.target.value[0];
-
+    const newFilePath = event.target.value;
 
     // Validate if the file path ends with ".pdf"
     if (newFilePath.endsWith('.pdf')) {
@@ -18,32 +16,6 @@ function App() {
       alert('Please enter a valid PDF file path.');
     }
   };
-
-  const [roastResponse,setRoastResponse] = useState('')
-  const handleSubmit = async () => {
-  
-
-    try {
-      const formData = new FormData();
-      formData.append('cv', filePath); // Replace 'file' with the desired field name in your backend
-      console.log('formData',formData);
-      console.log('formData',formData);
-      
-      const response = await fetch(api_url, { // Replace with your backend endpoint
-        method: 'POST',
-        body: formData
-      });
-      const data = await response.json();
-      setRoastResponse(data.roaster_response)
-
-      
-    } catch (error) {
-      console.log(error)
-    } 
-  }
-
-  ;
-
   return <main className="bg-bgColor h-screen flex  ">
 
   {/* add the navaition here use the header and add a nav here*/ }
@@ -57,16 +29,14 @@ function App() {
     <p className=" text-textColor mb-8">Receive instant, honest feedback from our <br/>
        AI-powered tool to make your CV stand out!</p>
        <div className="">
-      <form className="flex justify-center items-center" onClick={handleSubmit}>
-        <input className="block mb-2 "
+
+      <input className="block mb-2 "
         type="file"
         placeholder="Enter file path"
         value={filePath}
         onChange={handleFileChange}
       />
-       <input  className=" p-1 bg-btColor text-white " type="submit" value="Submit"/>
-      </form>
-      
+       <input  className=" p-1 bg-btColor text-white " type="submit" value="Submit" onClick={() => console.log('Sending file:', filePath)}/>
     </div>
   </section>
 
@@ -76,7 +46,7 @@ function App() {
   {/* the footer here */ }
 
 
-<p className=" ">{roastResponse?roastResponse:"Rien a affiché"}</p>
+
  </main>;
 
 }
