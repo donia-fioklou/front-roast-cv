@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 function App() {
 
+
   const [filePath, setFilePath] = useState('');
 
   const handleFileChange = (event) => {
@@ -16,6 +17,28 @@ function App() {
       alert('Please enter a valid PDF file path.');
     }
   };
+
+
+  const handleSubmit = async () => {
+  
+
+    try {
+      const formData = new FormData();
+      formData.append('file', filePath); // Replace 'file' with the desired field name in your backend
+
+      const response = await fetch('api_url', { // Replace with your backend endpoint
+        method: 'POST',
+        body: formData
+      });
+
+      
+    } catch (error) {
+      console.log(error)
+    } 
+  }
+
+  ;
+
   return <main className="bg-bgColor h-screen flex  ">
 
   {/* add the navaition here use the header and add a nav here*/ }
@@ -36,7 +59,7 @@ function App() {
         value={filePath}
         onChange={handleFileChange}
       />
-       <input  className=" p-1 bg-btColor text-white " type="submit" value="Submit" onClick={() => console.log('Sending file:', filePath)}/>
+       <input  className=" p-1 bg-btColor text-white " type="submit" value="Submit" onClick={handleSubmit}/>
     </div>
   </section>
 
@@ -46,7 +69,7 @@ function App() {
   {/* the footer here */ }
 
 
-<p></p>
+<p className=" "></p>
  </main>;
 
 }
