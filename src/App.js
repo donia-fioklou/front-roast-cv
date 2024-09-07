@@ -8,9 +8,6 @@ function App() {
       <header className="no_underline">
         <NavBar />
       </header>
-      {/* add the navaition here use the header and add a nav here*/}
-      {/* the body of the landing page here */}
-      {/* the footer here */}
     </main>
   );
 }
