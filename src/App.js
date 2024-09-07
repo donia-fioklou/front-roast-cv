@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 function App() {
-
+  const api_url = 'https://back-roast-cv.onrender.com/roast_cv';
 
   const [filePath, setFilePath] = useState('');
 
@@ -18,18 +18,20 @@ function App() {
     }
   };
 
-
+  const [roastResponse,setRoastResponse] = useState('')
   const handleSubmit = async () => {
   
 
     try {
       const formData = new FormData();
-      formData.append('file', filePath); // Replace 'file' with the desired field name in your backend
+      formData.append('cv', filePath); // Replace 'file' with the desired field name in your backend
 
-      const response = await fetch('api_url', { // Replace with your backend endpoint
+      const response = await fetch(api_url, { // Replace with your backend endpoint
         method: 'POST',
         body: formData
       });
+      const data = await response.json();
+      setRoastResponse(data.roaster_response)
 
       
     } catch (error) {
@@ -69,7 +71,7 @@ function App() {
   {/* the footer here */ }
 
 
-<p className=" "></p>
+<p className=" ">{roastResponse?roastResponse:"Rien a affiché"}</p>
  </main>;
 
 }
