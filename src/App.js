@@ -3,10 +3,11 @@ import { useState } from "react";
 function App() {
   const api_url = 'https://back-roast-cv.onrender.com/roast_cv';
 
-  const [filePath, setFilePath] = useState('');
+  const [filePath, setFilePath] = useState(null);
 
   const handleFileChange = (event) => {
-    const newFilePath = event.target.value;
+    const newFilePath = event.target.value[0];
+
 
     // Validate if the file path ends with ".pdf"
     if (newFilePath.endsWith('.pdf')) {
@@ -25,7 +26,9 @@ function App() {
     try {
       const formData = new FormData();
       formData.append('cv', filePath); // Replace 'file' with the desired field name in your backend
-
+      console.log('formData',formData);
+      console.log('formData',formData);
+      
       const response = await fetch(api_url, { // Replace with your backend endpoint
         method: 'POST',
         body: formData
@@ -54,14 +57,16 @@ function App() {
     <p className=" text-textColor mb-8">Receive instant, honest feedback from our <br/>
        AI-powered tool to make your CV stand out!</p>
        <div className="">
-
-      <input className="block mb-2 "
+      <form className="flex justify-center items-center" onClick={handleSubmit}>
+        <input className="block mb-2 "
         type="file"
         placeholder="Enter file path"
         value={filePath}
         onChange={handleFileChange}
       />
-       <input  className=" p-1 bg-btColor text-white " type="submit" value="Submit" onClick={handleSubmit}/>
+       <input  className=" p-1 bg-btColor text-white " type="submit" value="Submit"/>
+      </form>
+      
     </div>
   </section>
 
