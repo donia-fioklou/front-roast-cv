@@ -1,14 +1,8 @@
-
-import './App.css';
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header bg-btColor" >
-        This is the CV roasting app
-      </header>
-    </div>
-  );
+  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+
 }
 
 export default App;
