@@ -60,7 +60,7 @@ function App() {
           Receive instant, honest feedback from our <br />
           AI-powered tool to make your CV stand out!
         </p>
-        <form onClick={handleSubmit}>
+        <form onClick={handleSubmit} className="space-y-4">
           <input
             className="block mb-2 text-2xl  "
             type="file"
@@ -68,21 +68,27 @@ function App() {
             // value={filePath}
             onChange={handleFileChange}
           />
-          <button className=" text-xl p-1 bg-btColor text-white " type="submit">
-            Envoyer mon cv
+          <button
+            className=" text-xl p-1 bg-btColor text-white px-6 "
+            type="submit"
+          >
+            Send my cv
           </button>
         </form>
+        <div>
+          {" "}
+          {roastResponse ? (
+            <div
+              className="mx-10"
+              dangerouslySetInnerHTML={{ __html: htmlContent }}
+            ></div>
+          ) : (
+            <p>hi</p>
+          )}
+        </div>
       </section>
       {/* the main section of the landing page here */}
       {/* the footer here */}
-      {roastResponse ? (
-        <div
-          className="mx-10"
-          dangerouslySetInnerHTML={{ __html: htmlContent }}
-        ></div>
-      ) : (
-        <p>Rien à afficher</p>
-      )}
     </main>
   );
 }
