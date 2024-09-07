@@ -7,13 +7,13 @@ const md = new MarkdownIt();
 
 function App() {
   const [filePath, setFilePath] = useState(null);
+  const [roastResponse, setRoastResponse] = useState(null);
 
   const handleFileChange = (event) => {
     const newFilePath = event.target.files[0];
     setFilePath(newFilePath);
   };
 
-  const [roastResponse, setRoastResponse] = useState("");
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -61,12 +61,11 @@ function App() {
           Receive instant, honest feedback from our <br />
           AI-powered tool to make your CV stand out!
         </p>
-        <form onClick={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <input
             className="block mb-2 text-2xl  "
             type="file"
             placeholder="Enter file path"
-            // value={filePath}
             onChange={handleFileChange}
           />
           <button
