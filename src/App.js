@@ -99,7 +99,7 @@ function App() {
               className="black"
               src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3ClinearGradient id='a11'%3E%3Cstop offset='0' stop-color='%23000000' stop-opacity='0'%3E%3C/stop%3E%3Cstop offset='1' stop-color='%23FFFFFF'%3E%3C/stop%3E%3C/linearGradient%3E%3Ccircle fill='none' stroke='url(%23a11)' stroke-width='15' stroke-linecap='round' stroke-dasharray='0 44 0 44 0 44 0 44 0 360' cx='100' cy='100' r='70' transform-origin='center'%3E%3CanimateTransform type='rotate' attributeName='transform' calcMode='discrete' dur='2' values='360;324;288;252;216;180;144;108;72;36' repeatCount='indefinite'%3E%3C/animateTransform%3E%3C/circle%3E%3C/svg%3E"
             />}
-          
+          {roastResponse&& "Send my cv" }
           </button>
 
         </form>
