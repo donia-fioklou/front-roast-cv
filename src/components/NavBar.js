@@ -5,7 +5,7 @@ import {
   
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-
+import logo from '../assets/logo.png'
 const navigation = [
   { name: "About us", href: "#", current: false },
   { name: "How it Works", href: "#", current: false },
@@ -19,7 +19,7 @@ function classNames(...classes) {
 
 export default function NavBar() {
   return (
-    <Disclosure as="nav" className="no-underline">
+    <Disclosure as="nav" className="no-underline mx-1 mb-0">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -38,8 +38,8 @@ export default function NavBar() {
             </DisclosureButton>
           </div>
           <div className="flex flex-1 items-center justify-center md:items-stretch sm:justify-start">
-            <div className="flex flex-shrink-0 items-center">
-              <img alt="Your Company" src="" className="h-8 w-8" />
+            <div className="flex flex-shrink-0 items-start ">
+              <img alt="logo  " src={logo} className="h-12 w-12" />
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex text-gray-800 space-x-4 no-underline">

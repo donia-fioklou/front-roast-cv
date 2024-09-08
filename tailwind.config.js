@@ -11,6 +11,9 @@ module.exports = {
         btColor: 'rgba(21,21,21,255)',
         textColor:"rgba(151,151,151,255)"
       },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
     },
   },
   plugins: [],
