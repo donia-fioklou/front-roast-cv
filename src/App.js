@@ -57,10 +57,10 @@ function App() {
         <NavBar />
       </header>
       {/* add the navaition here use the header and add a nav here*/}
-      <section className="mx-10 flex leading-15  h-screen    ">
+      <section className="mx-0 gap-15 items-start mt-20 justify-center flex flex-col lg:flex-row leading-15 h-screen   ">
         <div className=" ">
 
-        <div className=" mt-3 text-2xl space-y-1 font-poppins ">
+        <div className=" leading-20  text-5xl space-y-5 font-poppins ">
           <h1>
             {" "}
             GET YOUR CV ROASTED BY AI   
@@ -74,17 +74,19 @@ function App() {
           </h1>
           
         </div>
-        <p className=" text-textColor text-xl font-poppins mb-8">
+        <p className=" text-textColor mt-3 text-xl font-poppins mb-8">
           Receive instant, honest feedback from our <br />
           AI-powered tool to make your CV stand out!
         </p>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            className="block mb-2 text-2xl font-poppins "
+          <div className="flex">
+            <input
+            className="block rounded-[4px] border-spacing-y-6 bg-black mb-2 text-white text-2xl font-poppins "
             type="file"
             placeholder="Enter file path"
             onChange={handleFileChange}
           />
+          </div>
           
           <button
             className={`text-xl font-poppins hover:bg-slate-900 hover:scale-105 rounded-[4px] hover:ml-1  p-1 ${buttonStyle} text-white px-6`}
@@ -101,28 +103,31 @@ function App() {
             />}
           {roastResponse&& "Send my cv" }
           </button>
-
         </form>
         <div>
           {" "}
-          {roastResponse ? (
-            <div
-              className="mx-10 font-poppins"
-              dangerouslySetInnerHTML={{ __html: htmlContent }}
-            ></div>
-          ) : (
-            <p></p>
-          )}
+       {roastResponse&&<div className=" items-center justify-center mx- mx-10 text-center text-2xl text-white mt-10 font-poppins  py-8 px-5 border-2 rounded-full bg-black  border-black-200 shadow-sm  " >
+          You have been Roasted
+        </div>
+        }
         </div>
         </div>
-        <div className="">
+       
+        <div className="mt-[-40px]">
           <img src={roasting_lg} height="100"  alt="lg" />
         </div>
       </section>  
       {/* the main section of the landing page here */}
       {/* the footer here */}
-     
+      <section className=" bg-white">
+        {roastResponse&&<div className="max-w-7xl font-poppins mx-auto py-12 px-10 border-2 rounded-[20px]   border-black-200 shadow-sm  bg-bgColor  "dangerouslySetInnerHTML={{ __html: htmlContent }} >
+          
+        </div>
+}
+      </section>
     </main>
+
+    
   );
 }
 
